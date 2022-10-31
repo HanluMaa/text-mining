@@ -89,6 +89,7 @@ def main():
     spam_list,ham_list=organize_function() # create two lists: spam_list and ham_list
     spam_dict=create_dict(spam_list) # create one dictionary: spam_dict
     ham_dict=create_dict(ham_list) # create one dictionary: ham_list
+    # summary statistic
     print(f'The number of spam messages is {len(spam_list)}.') 
     print(f'The number of ham messages is {len(ham_list)}.')
     print(f'The number of different words used in spam messages is {len(spam_dict)}.') 
@@ -102,9 +103,11 @@ def main():
     print(f'The top 20 most frequent words that are in ham messages, but not in spam messages are:')
     words_in_spam_only(ham_dict,spam_dict,20)
     # since the function randomly picks two messages for 10000 times, the result for the text similarity will not exhibit the exact result. However, the score of the text similarity score should be similar.
+    # text similarity
     print(f'The text similarity within the strings of the spam list is {text_similarity(spam_list,10000)}.')
     print(f'The text similarity within the strings of the ham list is {text_similarity(ham_list,10000)}.')
     print(f'The text similarity between the strings of the spam list and the strings of the ham list is {text_similarities(ham_list,spam_list,10000)}.') 
+    # sensitivity analysis
     print('The sensitivity analysis for spam messages:')
     print(sensitivity_analysis(spam_list))
     print('The sensitivity analysis for ham messages:')

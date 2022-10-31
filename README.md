@@ -1,5 +1,3 @@
-# text-mining
-
 # Project Writeup and Reflection
 
 # Project Overview

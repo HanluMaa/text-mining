@@ -110,6 +110,7 @@ hat 75
 ```
 
 TEXT SIMILARITY:
+
 While no significant similarity within various spam messages and differences between the spam messages and non-spam messages, the comparative higher score for the text similarity within the spam messages implies that a greater proclivity of consistent message patterns may appear in spam messages. In addition, since every spam messages will adjust the content to better promote different organizations and events, the the text similarity will significantly boost as these disparities become consistent. Therefore, people can better discern the spam message if they found similar patterns existing in several messages. 
 
 Furthermore, since the text similarity between the spam messages and ham messages are the lowest in three calculated ones, we can properly conclude that if people feel an obvious difference in two messages (i.e. one message from unknown sender and one message from the know person or friend), there is a high chance that the message from the unknown sender belongs to a spam message. 
@@ -120,6 +121,7 @@ The text similarity between the strings of the spam list and the strings of the 
 ```
 
 SENSITIVITY ANALYSIS:
+
 Comparing the sensitivity analysis result for the spam messages and non-spam messages, I discover that the overall text of the spam message tends to be more positive, and the ham message tends to cluster more on the neutral tones and spend slightly less emphasis on positive tone and more emphasis on negative tone. Extending to the broader view of spam message's intention, these senders intentionally create a positive and attractive tones in order to excite the target group and encourage them to take actions.
 ```
 The sensitivity analysis for spam messages:

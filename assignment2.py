@@ -101,6 +101,7 @@ def main():
     words_in_spam_only(spam_dict,ham_dict,20)
     print(f'The top 20 most frequent words that are in ham messages, but not in spam messages are:')
     words_in_spam_only(ham_dict,spam_dict,20)
+    # since the function randomly picks two messages for 10000 times, the result for the text similarity will not exhibit the exact result. However, the score of the text similarity score should be similar.
     print(f'The text similarity within the strings of the spam list is {text_similarity(spam_list,10000)}.')
     print(f'The text similarity within the strings of the ham list is {text_similarity(ham_list,10000)}.')
     print(f'The text similarity between the strings of the spam list and the strings of the ham list is {text_similarities(ham_list,spam_list,10000)}.') 

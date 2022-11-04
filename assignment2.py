@@ -20,6 +20,14 @@ def organize_function():
             ham_list.append(word[5:])
     return spam_list,ham_list
 
+def process_stopwords():
+    file = open('stopwords.txt') 
+    stopword_list=[]
+    for line in file:
+        word = line.strip().lower()
+        stopword_list.append(word)
+    return stopword_list
+
 def create_dict(list):
     """
     This function turns the list to a dictionary: the keys are words that appear in the list and the values are the frequencies of the words in the list.
@@ -32,31 +40,35 @@ def create_dict(list):
         for word in line.split():
             word = word.strip(strippables)
             hist[word] = hist.get(word, 0) + 1
+
     return hist
 
-def most_common(hist,num):
+def most_common(hist,stopwords,num):
     """
     This function prints the keys and the corresponding values in a dictionary with x number of words with highest frequencies.
     """
     t=list()
     hist=dict(hist)
+    stopwords=list(stopwords)
     for key, values in hist.items():
-        t.append((values,key))
+        if key not in stopwords:
+            t.append((values,key))
     t.sort(reverse=True)
     for values, key in t[0:num]:
         print(key,values)
     return
 
-def words_in_spam_only(hist1, hist2,num):
+def words_in_spam_only(hist1, hist2,stopwords,num):
     """
     This function produces the x number of words that appear most in hist1(dictionary1), but do not appear in hist2(dictionary2)
     """
     t=list()
     hist1=dict(hist1)
     hist2=dict(hist2)
+    stopwords=list(stopwords)
     for key in hist1:
-        if key not in hist2:
-            t.append((hist1[key],key))
+        if key not in hist2 and key not in stopwords:
+                t.append((hist1[key],key))
     t.sort(reverse=True)
     for values, key in t[0:num]:
         print(key,values)
@@ -87,6 +99,7 @@ def text_similarities(text1,text2,number):
 
 def main():
     spam_list,ham_list=organize_function() # create two lists: spam_list and ham_list
+    stopwords_list=process_stopwords()
     spam_dict=create_dict(spam_list) # create one dictionary: spam_dict
     ham_dict=create_dict(ham_list) # create one dictionary: ham_list
     # summary statistic
@@ -95,13 +108,13 @@ def main():
     print(f'The number of different words used in spam messages is {len(spam_dict)}.') 
     print(f'The number of different words used in ham messages is {len(ham_dict)}.')
     print(f'The top 20 words with highest frequency in spam messages are:')
-    most_common(spam_dict,20)
+    most_common(spam_dict,stopwords_list,20)
     print(f'The top 20 words with highest frequency in ham messages are:')
-    most_common(ham_dict,20)
+    most_common(ham_dict,stopwords_list,20)
     print(f'The top 20 most frequent words that are in spam messages, but not in ham messages are:')
-    words_in_spam_only(spam_dict,ham_dict,20)
+    words_in_spam_only(spam_dict,ham_dict,stopwords_list,20)
     print(f'The top 20 most frequent words that are in ham messages, but not in spam messages are:')
-    words_in_spam_only(ham_dict,spam_dict,20)
+    words_in_spam_only(ham_dict,spam_dict,stopwords_list,20)
     # since the function randomly picks two messages for 10000 times, the result for the text similarity will not exhibit the exact result. However, the score of the text similarity score should be similar.
     # text similarity
     print(f'The text similarity within the strings of the spam list is {text_similarity(spam_list,10000)}.')

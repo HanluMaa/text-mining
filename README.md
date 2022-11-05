@@ -7,7 +7,9 @@ I use the data source of SMS spam collection. I utilized natural language proces
 After obtaining the data source of SMS messages, I divide the datasets into two lists -- spam list and ham list (non-spam list) -- since I intend to analyze the similarities and diffrences within and between the two lists in the following procedures. I start my first portion of text analysis to obtain a brief overview about the most frequent words in both lists. Accordingly, I map all the words in the spam list and ham list into spam dictionary and ham dictionary and sort the values in these dictionaries in a descending manner to obtain the first 20 words that are most common in both dictionaries. Secondly, I figure out the most frequent words that only appears in spam messages or ham messages, which can provide a more determining insight for users to categorize the spam messages and non-spam messages. Thirdly, I calculate the text similarities within and between the spam messages and ham messages to investigate whether the senders with different intentions will unintentionally or intentionally contain some overlapping sentences or words. Lastly, I conduct a sensitivity analysis for the spam messages and ham messages to understand the preference of the senders and the mood/atmosphere they endeavor to build. 
 
 # Results
-## Most Common Words: If people need to decide whether a message is a spam message by merely observing the words rather than the context, they can randomly pick few words from the message and decide whether these words contain any traits in the features discussed in the following.
+## Most Common Words: 
+
+Overall, If people need to decide whether a message is a spam message by merely observing the words rather than the context, they can randomly pick few words from the message and decide whether these words contain any traits in the features discussed in the following.
 
 Briefly browsing through the 20 most common words in spam messages and ham messages, they both have a huge proportion of short and strong verbs (e.g. 'get','call', and etc.) and a fixed proportion of personal pronoun abbreviation (e.g. 'ur' and 'u'). Specifically, for the spam messages, they tend to include more words related with cell-phone, such as 'text', and 'mobile'. As for the non-spam messages, they will have a greater proportion of short verb than the spam messages, such as 'go', 'know', 'come', etc.
 ```
@@ -108,7 +110,7 @@ anything 66
 sure 64
 ```
 
-## TEXT SIMILARITY:
+## Text Similarity:
 
 While no significant similarity within various spam messages and differences between the spam messages and non-spam messages, the comparative higher score for the text similarity within the spam messages implies that a greater proclivity of consistent message patterns may appear in spam messages. In addition, since every spam messages will adjust the content to better promote different organizations and events, the the text similarity will significantly boost as these disparities become consistent. Therefore, people can better discern the spam message if they found similar patterns existing in several messages. 
 
@@ -119,7 +121,7 @@ The text similarity within the strings of the ham list is 26.5087.
 The text similarity between the strings of the spam list and the strings of the ham list is 23.3286.
 ```
 
-## SENSITIVITY ANALYSIS:
+## Sensitivity Analysis:
 
 Comparing the sensitivity analysis result for the spam messages and non-spam messages, I discover that the overall text of the spam message tends to be more positive, and the ham message tends to cluster more on the neutral tones and spend slightly less emphasis on positive tone and more emphasis on negative tone. Extending to the broader view of spam message's intention, these senders intentionally create a positive and attractive tones in order to excite the target group and encourage them to take actions.
 ```

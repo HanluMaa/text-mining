@@ -21,6 +21,9 @@ def organize_function():
     return spam_list,ham_list
 
 def process_stopwords():
+    """
+    This function creates a list of stopwords.
+    """
     file = open('stopwords.txt') 
     stopword_list=[]
     for line in file:
@@ -45,7 +48,7 @@ def create_dict(list):
 
 def most_common(hist,stopwords,num):
     """
-    This function prints the keys and the corresponding values in a dictionary with x number of words with highest frequencies.
+    This function excludes the stopwords and prints the rest of keys and the corresponding values in a dictionary with x number of words with highest frequencies.
     """
     t=list()
     hist=dict(hist)
@@ -60,7 +63,7 @@ def most_common(hist,stopwords,num):
 
 def words_in_spam_only(hist1, hist2,stopwords,num):
     """
-    This function produces the x number of words that appear most in hist1(dictionary1), but do not appear in hist2(dictionary2)
+    This function excludes the stopwords and produces the x number of words that appear most in hist1(dictionary1), but do not appear in hist2(dictionary2)
     """
     t=list()
     hist1=dict(hist1)
@@ -75,6 +78,9 @@ def words_in_spam_only(hist1, hist2,stopwords,num):
     return
 
 def sensitivity_analysis(text):
+    """
+    This function conducts sensitivity analysis to the text.
+    """
     text=str(text)
     score = SentimentIntensityAnalyzer().polarity_scores(text)
     return score

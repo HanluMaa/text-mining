@@ -105,7 +105,7 @@ def text_similarities(text1,text2,number):
 
 def main():
     spam_list,ham_list=organize_function() # create two lists: spam_list and ham_list
-    stopwords_list=process_stopwords()
+    stopwords_list=process_stopwords() # create a list for stopwords
     spam_dict=create_dict(spam_list) # create one dictionary: spam_dict
     ham_dict=create_dict(ham_list) # create one dictionary: ham_list
     # summary statistic
